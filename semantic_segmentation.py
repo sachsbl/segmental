@@ -25,8 +25,11 @@ def generate_image_labels(image: ndarray, trained_image_width=512, mean_subtract
     res = deeplab_model.predict(np.expand_dims(resized_image, 0))
     labels = np.argmax(res.squeeze(), -1)
 
-    # resize back to original image
-    labels = labels[:-pad_x]
+    # remove padding and resize back to original image
+    if pad_x > 0:
+        labels = labels[:-pad_x]
+    if pad_y > 0:
+        labels = labels[:, :-pad_y]
     labels = np.array(Image.fromarray(labels.astype('uint8')).resize((h, w)))
 
     return labels
