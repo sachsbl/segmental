@@ -4,7 +4,7 @@ from PIL import Image
 import numpy as np
 from numpy import ndarray
 
-from semantic_segmentation import generate_image_labels
+from segmentation_utils import generate_image_labels
 from pascal_voc_classes import PascalVOCClasses
 
 
@@ -12,9 +12,12 @@ TEST_IMAGE_FOLDER = Path(__file__).parent.joinpath('test_images').resolve()
 
 LANDSCAPE_TEST_IMAGE_NAME = "dog_baxter.jpg"
 PORTRAIT_TEST_IMAGE_NAME = "cat.jpg"
+SMALL_TEST_IMAGE_NAME = "baptist400.jpg"
+
 
 LANDSCAPE_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{LANDSCAPE_TEST_IMAGE_NAME}"
 PORTRAIT_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{PORTRAIT_TEST_IMAGE_NAME}"
+SMALL_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{SMALL_TEST_IMAGE_NAME}"
 
 
 class TestGenerateLabels:
@@ -62,3 +65,13 @@ class TestGenerateLabels:
 
         assert PascalVOCClasses.background.value in unique_labels
         assert PascalVOCClasses.cat.value in unique_labels
+
+    def test_generate_labels_size_less_than_default_returns_correct_size(self):
+        input_image = Image.open(SMALL_TEST_IMAGE)
+        img_array = np.array(input_image)
+
+        result_array = generate_image_labels(img_array)
+        result_image = Image.fromarray(result_array)
+
+        assert result_image.size == input_image.size
+

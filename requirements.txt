@@ -1,6 +1,8 @@
 keras==2.2.4
 tensorflow==2.0.0a0
 Pillow==6.0.0
-numpy
-opencv-python
-matplotlib
+numpy==1.16.2
+matplotlib==3.0.3
+scikit-image==0.15.0
+flask
+zappa
