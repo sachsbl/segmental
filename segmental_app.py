@@ -1,16 +1,17 @@
 import os
 
 from flask import Flask, request, jsonify
-from skimage import io
+import numpy as np
+from PIL import Image
 
 from segmentation_utils import generate_image_labels
 
 # Disable annoying TensorFlow Logging
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
+ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
+
 
 app = Flask(__name__)
-
-ALLOWED_EXTENSIONS = {'png', 'jpg', 'jpeg'}
 
 
 def allowed_file_type(filename):
@@ -32,7 +33,7 @@ def segmental_endpoint():
         return "An image file is required", 400
 
     if image and allowed_file_type(image.filename):
-        image = io.imread(image, plugin='pil')
+        image = np.array(Image.open(image))
         result = generate_image_labels(image)
 
         return jsonify({'labels_array': result.tolist()})
