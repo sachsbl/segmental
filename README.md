@@ -1,2 +1,2 @@
-# segmental
+# Segmental
 Semantic Image Segmentation service using Keras and DeepLabv3+

@@ -10,7 +10,7 @@ from segmental_app import app
 TEST_IMAGE_FOLDER = Path(__file__).parent.joinpath('test_images').resolve()
 DUMMY_FILE_FOLDER = Path(__file__).parent.joinpath('test_dummy_files').resolve()
 
-TEST_IMAGE_NAME = "dog_baxter.jpg"
+TEST_IMAGE_NAME = "10x10.jpg"
 TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{TEST_IMAGE_NAME}"
 
 

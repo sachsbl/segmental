@@ -1,8 +1,12 @@
+import os
+
 from flask import Flask, request, jsonify
 from skimage import io
 
 from segmentation_utils import generate_image_labels
 
+# Disable annoying TensorFlow Logging
+os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 
 app = Flask(__name__)
 
