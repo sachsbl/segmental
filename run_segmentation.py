@@ -5,7 +5,7 @@ from matplotlib import pyplot as plt
 import numpy as np
 
 
-input_image = '/Users/Ben/PycharmProjects/segmental/test/test_images/cat.jpg'
+input_image = './test//test_images/cat.jpg'
 
 img_array = np.array(Image.open(input_image))
 
