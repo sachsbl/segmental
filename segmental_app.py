@@ -4,7 +4,7 @@ from flask import Flask, request, jsonify
 import numpy as np
 from PIL import Image
 
-from segmentation_utils import generate_image_labels
+from segmentation.segmentation_utils import generate_image_labels
 
 # Disable annoying TensorFlow Logging
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'

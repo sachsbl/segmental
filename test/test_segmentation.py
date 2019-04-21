@@ -4,8 +4,8 @@ from PIL import Image
 import numpy as np
 from numpy import ndarray
 
-from segmentation_utils import generate_image_labels
-from pascal_voc_classes import PascalVOCClasses
+from segmentation.segmentation_utils import generate_image_labels
+from segmentation.pascal_voc_classes import PascalVOCClasses
 
 
 TEST_IMAGE_FOLDER = Path(__file__).parent.joinpath('test_images').resolve()

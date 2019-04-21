@@ -2,7 +2,7 @@ import numpy as np
 from numpy import ndarray
 from PIL import Image
 
-from deeplab_model import Deeplabv3
+from segmentation.deeplab_model import Deeplabv3
 
 
 # default normalization matches MobileNetV2

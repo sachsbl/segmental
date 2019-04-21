@@ -1,4 +1,4 @@
-from segmentation_utils import generate_image_labels
+from segmentation.segmentation_utils import generate_image_labels
 
 from PIL import Image
 from matplotlib import pyplot as plt
