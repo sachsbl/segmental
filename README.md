@@ -19,7 +19,7 @@ https://github.com/bonlime/keras-deeplab-v3-plus
 
 QuickStart/Running the CLI
 -----
-Download the repo and install the dependencies using pip.  Virtual Environment strongly recommended.  
+Clone the repo and install the dependencies using pip.  Virtual Environment strongly recommended.  
 Only Python 3.7+ is supported.  
 
 ```pip install -r requirements_cli.txt```
