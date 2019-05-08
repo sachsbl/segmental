@@ -5,7 +5,7 @@ An example application that runs Google's DeepLabv3+ to perform Semantic Image S
 Tensorflow/Keras distributions.  Segmental can be run as a CLI, but is also Dockerized and can be run as a Flask app in 
 a Docker container.  The goal of this project is to provide an example of how to productionize the latest Deep Learning 
 tech, and provide a QuickStart example for people interested in this approach.  I do not claim that the segmentation
-results are that amazing, but the model can be re-trained to provide better results and the framework provided will 
+results are perfect, but the model can be re-trained to provide better results and the framework provided should 
 still work well.  
 
 Network/Model
@@ -17,21 +17,28 @@ This work builds on the original models here:
 https://github.com/bonlime/keras-deeplab-v3-plus
  
 
-Running the CLI
+QuickStart/Running the CLI
 -----
-Download the repo and build an environment using pip.  ONLY Python 3.7+ is supported.  
+Download the repo and install the dependencies using pip.  Virtual Environment strongly recommended.  
+Only Python 3.7+ is supported.  
 
 ```pip install -r requirements_cli.txt```
 
-Run "python segmental_cli.py -- help" for the CLI interface.
+Run ```python segmental_cli.py --help``` for the CLI interface.  It will display the text below
 
 ```
+Usage: segmental_cli.py [OPTIONS] IMAGE_PATH
+
 Options:
-  -i, --input_img PATH  Input image file.  JPEG and PNG are supported.
-                        [required]
-  --help                Show this message and exit.
-
+  --help  Show this message and exit.
 ```
+
+To test the code on your image, run the following:
+
+```python segmental_cli.py /Path/To/Your/Image.jpg```
+
+The result should pop up in a window for viewing.  Only JPEG and PNG formats are supported. Note that the first time it
+runs, it will take a bit longer as it needs to download and cache parameters for the model. 
 
 Docker
 -----

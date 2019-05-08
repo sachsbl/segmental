@@ -7,10 +7,9 @@ import click
 
 
 @click.command()
-@click.option('--input_img', '-i', help='Input image file.  JPEG and PNG are supported.', type=click.Path(),
-              required=True)
-def segmental_cli(input_img):
-    img_array = np.array(Image.open(input_img))
+@click.argument('image_path')
+def segmental_cli(image_path):
+    img_array = np.array(Image.open(image_path))
 
     result = generate_image_labels(img_array)
 
