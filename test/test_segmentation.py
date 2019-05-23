@@ -13,11 +13,13 @@ TEST_IMAGE_FOLDER = Path(__file__).parent.joinpath('test_images').resolve()
 LANDSCAPE_TEST_IMAGE_NAME = "dog_baxter.jpg"
 PORTRAIT_TEST_IMAGE_NAME = "cat.jpg"
 SMALL_TEST_IMAGE_NAME = "baptist400.jpg"
+RGBA_TEST_IMAGE_NAME = "rgba.png"
 
 
 LANDSCAPE_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{LANDSCAPE_TEST_IMAGE_NAME}"
 PORTRAIT_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{PORTRAIT_TEST_IMAGE_NAME}"
 SMALL_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{SMALL_TEST_IMAGE_NAME}"
+RGBA_TEST_IMAGE = f"{TEST_IMAGE_FOLDER}/{RGBA_TEST_IMAGE_NAME}"
 
 
 class TestGenerateLabels:
@@ -75,3 +77,10 @@ class TestGenerateLabels:
 
         assert result_image.size == input_image.size
 
+    def test_generate_labels_rgba_image_returns_labels_as_array(self):
+        input_image = Image.open(RGBA_TEST_IMAGE)
+        img_array = np.array(input_image)
+
+        result_array = generate_image_labels(img_array)
+
+        assert type(result_array) == ndarray
