@@ -1,0 +1,7 @@
+**/test
+**/temp
+**/venv
+**/build
+**/dist
+**/.pytest_cache
+**/**.pytest_cache

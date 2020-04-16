@@ -1,5 +1,5 @@
-tensorflow==2.0.0-beta1
-Pillow==6.2.0
+tensorflow==2.0.1
+Pillow==6.2.2
 numpy
 matplotlib
 flask
