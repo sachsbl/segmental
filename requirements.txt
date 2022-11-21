@@ -1,5 +1,5 @@
 keras==2.2.4
-tensorflow==2.0.0-beta1
+tensorflow==2.9.3
 Pillow==6.2.2 # was 6.2.0 before git alert
 numpy
 matplotlib
